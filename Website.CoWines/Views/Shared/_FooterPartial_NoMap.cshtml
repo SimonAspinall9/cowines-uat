@@ -1,0 +1,44 @@
+﻿<footer class="footer-fixed-bottom">
+    <div class="row row-eq-height">
+        <div class="col-md-4">
+            <div class="text-container">
+                <p>C &amp; O Wines</p>
+                <p>Unit 14, Park Road Estate,</p>
+                <p>Park Road,</p>
+                <p>Timperley</p>
+                <p>Cheshire</p>
+                <p>WA14 5QR</p>
+                <br />
+                <p>
+                    <i class="fa fa-twitter-square fa-2x"></i><br />
+                    @@COWines
+                </p>
+                <br />
+                <p>
+                    <i class="fa fa-phone-square fa-3x"></i><br />
+                    <span class="phone-number-lg">01925 737585</span>
+                </p>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <form action="@Url.Content("/Home/Contact")" method="post">
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <input type="text" placeholder="First Name..." class="form-control" name="FirstName" required />
+                    <input type="text" placeholder="Last Name..." class="form-control" name="LastName" required />
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email Address..." class="form-control" required />
+                    <input type="text" placeholder="Subject..." class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Enter your message..." class="form-control" name="Message" rows="6"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <p>&copy; @DateTime.Now.Year - C &amp; O Wines</p><p class="pull-right">Designed by Starlite Solutions</p>
+</footer>

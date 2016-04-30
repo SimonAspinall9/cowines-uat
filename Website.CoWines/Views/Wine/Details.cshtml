@@ -1,0 +1,62 @@
+﻿@model Website.CoWines.ViewModel.ProductViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div id="product-details">
+    <div class="row">
+        <a onclick="history.go(-1); return false;" href="#">Back</a>
+    </div>
+    <div class="row">
+        <div class="page-header">
+            <h2 class="text-center">@Model.Name</h2>
+        </div>
+    </div>
+    <div class="row row-eq-height">
+        <div class="col-md-7">
+            <img src="@Url.Content(Model.ImgUrl)" alt="@Model.Name" class="img-responsive img-rounded" />
+        </div>
+        <div class="col-md-5 relative">
+            <h3>@Model.Description</h3>
+            <h4>Price: @Model.PriceInclVat.ToString("C")</h4>
+            <p>Price Excluding VAT: @Model.PriceExclVat.ToString("C")</p>
+            <div class="text-container">
+                <ul class="list-unstyled">
+                    @if (!string.IsNullOrEmpty(Model.BottleSize))
+                    {
+                        <li>Bottle Size: @Model.BottleSize</li>
+                    }
+                    @if (Model.BottlesPerCase != default(int))
+                    {
+                        <li>Bottles Per Case: @Model.BottlesPerCase</li>
+                    }
+                    @if (Model.CatalogueNumber != default(int))
+                    {
+                        <li>Catalogue Number: @Model.CatalogueNumber</li>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.Grape))
+                    {
+                        <li>Grape: @Model.Grape</li>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.Origin))
+                    {
+                        <li>Origin: @Model.Origin</li>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.Producer))
+                    {
+                        <li>Producer: @Model.Producer</li>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.Sweetness))
+                    {
+                        <li>Sweetness: @Model.Sweetness</li>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.Year))
+                    {
+                        <li>Year: @Model.Year</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

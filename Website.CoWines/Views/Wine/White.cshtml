@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Website.CoWines.ViewModel.ProductViewModel>
+
+@{
+    ViewBag.Title = "White";
+}
+
+<div class="row">
+    <div class="page-header">
+        <h2 class="text-center">@ViewBag.Title Wine</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3" id="filter">
+        <div class="row">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9" id="products">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 text-center">
+                    <a href="@Url.Content("~/Wine/Details/" + item.Id)">
+                        <div class="thumbnail">
+                            <img src="@Url.Content(item.ImgUrl)" alt="@item.Name">
+                            <div class="caption">
+                                <h4>@item.Name</h4>
+                                <p><input type="button" class="btn btn-default" value="Add To Cart" /></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
