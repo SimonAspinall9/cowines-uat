@@ -34,11 +34,19 @@
             ChangeEntityState(entity, EntityState.Deleted);
         }
 
+        public ICollection<Product> Get()
+        {
+            var products = (from p in DbContext.Products
+                            select p).ToList();
+
+            return products;
+        }
+
         public Product GetById(int id)
         {
             var product = (from p in DbContext.Products
                            where p.Id.Equals(id)
-                           select p).FirstOrDefault();
+                           select p).SingleOrDefault();
 
             return product;
         }

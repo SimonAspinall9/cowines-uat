@@ -11,6 +11,8 @@ namespace Website.CoWines.Migrations
         {
             AutomaticMigrationsEnabled = false;
             SetSqlGenerator("MySql.Data.MySqlClient", new MySqlMigrationSqlGenerator());
+            SetHistoryContextFactory("MySql.Data.MySqlClient", (conn, schema) => new DAL.MySqlHistoryContext(conn, schema));
+            CodeGenerator = new MySqlMigrationCodeGenerator();
         }
 
         protected override void Seed(ApplicationDbContext context)

@@ -1,4 +1,6 @@
-﻿namespace Website.CoWines.Repositories
+﻿using System.Collections.Generic;
+
+namespace Website.CoWines.Repositories
 {
     public interface IRepository<T> where T : IEntity
     {
@@ -7,5 +9,6 @@
         void Update(T entity);
         T GetById(int id);
         T GetByName(string name);
+        ICollection<T> Get();
     }
 }

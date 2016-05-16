@@ -222,6 +222,8 @@
     <Compile Include="Attributes\AuthorizeOver18Attribute.cs" />
     <Compile Include="Attributes\MinimumAgeAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseAdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BaseProductController.cs" />
     <Compile Include="Controllers\ChampagneController.cs" />
@@ -229,6 +231,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LiqueurController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SpiritController.cs" />
     <Compile Include="Controllers\ValidateController.cs" />
     <Compile Include="Controllers\WineController.cs" />
@@ -283,8 +286,11 @@
     <Compile Include="Models\Year.cs" />
     <Compile Include="Repositories\BaseRepository.cs" />
     <Compile Include="Repositories\CustomerRepository.cs" />
+    <Compile Include="Repositories\EditProductsRepository.cs" />
     <Compile Include="Repositories\Entity.cs" />
+    <Compile Include="Repositories\IEditProductViewModels.cs" />
     <Compile Include="Repositories\IEntity.cs" />
+    <Compile Include="Repositories\IGetBottleSizes.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
@@ -294,6 +300,7 @@
     <Compile Include="ViewModel\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\EditProductViewModel.cs" />
     <Compile Include="ViewModel\ShoppingCartItemViewModel.cs" />
     <Compile Include="ViewModel\ShoppingCartRemoveViewModel.cs" />
     <Compile Include="ViewModel\ValidateAgeViewModel.cs" />
@@ -428,6 +435,11 @@
     <Content Include="Views\Wine\Details.cshtml" />
     <Content Include="Views\Shared\_NavbarPartial.cshtml" />
     <Content Include="Views\Checkout\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Products.cshtml" />
+    <Content Include="Views\Shared\_Layout_Admin.cshtml" />
+    <Content Include="Views\Admin\ProductDetails.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,8 +3,9 @@
     using DAL;
     using System;
     using Models;
+    using System.Linq;
     using System.Data.Entity;
-
+    using System.Collections.Generic;
     public class CustomerRepository : BaseRepository, IRepository<Customer>
     {
         public CustomerRepository()
@@ -20,6 +21,14 @@
         public void Delete(Customer entity)
         {
             throw new NotImplementedException();
+        }
+
+        public ICollection<Customer> Get()
+        {
+            var customers = (from c in DbContext.Customers
+                             select c).ToList();
+
+            return customers;
         }
 
         public Customer GetById(int id)
