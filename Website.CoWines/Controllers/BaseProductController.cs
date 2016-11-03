@@ -25,20 +25,20 @@
                                      select new ProductViewModel
                                      {
                                          Id = p.Id,
-                                         BottleSize = p.BottleSize.Name,
+                                         BottleSize = p.BottleSize.NullSafeName(),
                                          BottlesPerCase = p.BottlesPerCase,
                                          CatalogueNumber = p.CatalogueNumber,
                                          Description = p.Description,
-                                         Grape = p.GrapeType.Name,
+                                         Grape = p.GrapeType.NullSafeName(),
                                          ImgUrl = p.ImgUrl ?? "~/Content/img/awaiting-image.jpg",
                                          Name = p.Name,
-                                         Origin = p.Origin.Name,
+                                         Origin = p.Origin.NullSafeName(),
                                          PriceExclVat = (p.Price * 100) / (100 + CurrentTaxYearVat.VatPercent),
                                          PriceInclVat = p.Price,
-                                         Producer = p.Producer.Name,
-                                         Sweetness = p.Sweetness.Name,
-                                         Year = p.Year.Name
-                                     });
+                                         Producer = p.Producer.NullSafeName(),
+                                         Sweetness = p.Sweetness.NullSafeName(),
+                                         Year = p.Year.NullSafeName()
+                                     }).ToList();
 
             return productViewModels;
         }

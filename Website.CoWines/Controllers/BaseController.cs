@@ -70,9 +70,7 @@
             {
                 if (_taxYearVat == null)
                 {
-                    _taxYearVat = (from t in DbContext.TaxYearVats
-                                   where t.TaxYearStart <= DateTime.Today && t.TaxYearEnd >= DateTime.Today
-                                   select t).FirstOrDefault();
+                    _taxYearVat = DbContext.TaxYearVats.Single(t => t.TaxYearStart <= DateTime.Today && t.TaxYearEnd >= DateTime.Today);
                 }
 
                 return _taxYearVat;

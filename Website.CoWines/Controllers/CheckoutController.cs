@@ -15,6 +15,10 @@
         public override ActionResult Index()
         {
             var shoppingCartCookie = Request.Cookies.Get("shoppingcart");
+
+            if (shoppingCartCookie == null)
+                return View();
+
             var cookieItems = shoppingCartCookie.Value.Split(',');
             var shoppingCartItems = GetShoppingCartItemsFromCookieSplits(_productRepository, cookieItems);
 

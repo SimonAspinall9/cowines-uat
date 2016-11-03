@@ -10,6 +10,11 @@ namespace Website.CoWines.Controllers
     {
         IProductRepository _productRepository = new ProductRepository();
 
+        public ActionResult Index()
+        {
+            return RedirectToAction("Products");
+        }
+
         public ActionResult Products()
         {
             var products = _productRepository.Get();

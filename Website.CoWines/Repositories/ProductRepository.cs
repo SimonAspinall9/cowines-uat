@@ -36,10 +36,10 @@
 
         public ICollection<Product> Get()
         {
-            var products = (from p in DbContext.Products
-                            select p).ToList();
-
-            return products;
+            using (var dbContext = new ApplicationDbContext())
+            {
+                return dbContext.Products.ToList();
+            }
         }
 
         public Product GetById(int id)
@@ -63,12 +63,7 @@
         public ICollection<Product> GetByProductType(ProductTypes productType)
         {
             var productTypeDescription = productType.GetEnumDescription();
-
-            var products = (from p in DbContext.Products
-                            where p.ProductType.Name.Equals(productTypeDescription)
-                            select p).ToList();
-
-            return products;
+            return DbContext.Products.Where(p => p.ProductType.Name.Equals(productTypeDescription, StringComparison.CurrentCultureIgnoreCase)).ToList();
         }
 
         public void Update(Product entity)
