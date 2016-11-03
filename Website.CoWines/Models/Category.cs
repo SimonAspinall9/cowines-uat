@@ -5,6 +5,6 @@
 
     public class Category : Entity
     {
-        public ICollection<ProductType> ProductTypes { get; set; }
+        public IEnumerable<ProductType> ProductTypes { get; set; }
     }
 }

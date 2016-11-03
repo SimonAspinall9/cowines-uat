@@ -23,7 +23,7 @@
             throw new NotImplementedException();
         }
 
-        public ICollection<Customer> Get()
+        public IEnumerable<Customer> Get()
         {
             var customers = (from c in DbContext.Customers
                              select c).ToList();

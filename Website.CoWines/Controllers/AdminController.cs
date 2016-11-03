@@ -17,8 +17,7 @@ namespace Website.CoWines.Controllers
 
         public ActionResult Products()
         {
-            var products = _productRepository.Get();
-            var productViewModels = MapToProductViewModels(products).ToList();
+            var productViewModels = MapToProductViewModels(_productRepository.Get()).ToList();
 
             return View(productViewModels);
         }

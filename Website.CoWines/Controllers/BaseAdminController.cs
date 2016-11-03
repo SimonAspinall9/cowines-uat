@@ -11,26 +11,23 @@ namespace Website.CoWines.Controllers
     {
         protected virtual IEnumerable<ProductViewModel> MapToProductViewModels(IEnumerable<Product> products)
         {
-            var productViewModels = (from p in products
-                                     select new ProductViewModel
-                                     {
-                                         Id = p.Id,
-                                         BottleSize = p.BottleSize == null ? string.Empty : p.BottleSize.Name,
-                                         BottlesPerCase = p.BottlesPerCase,
-                                         CatalogueNumber = p.CatalogueNumber,
-                                         Description = p.Description,
-                                         Grape = p.GrapeType == null ? string.Empty : p.GrapeType.Name,
-                                         ImgUrl = p.ImgUrl ?? "~/Content/img/awaiting-image.jpg",
-                                         Name = p.Name,
-                                         Origin = p.Origin == null ? string.Empty : p.Origin.Name,
-                                         PriceExclVat = (p.Price * 100) / (100 + CurrentTaxYearVat.VatPercent),
-                                         PriceInclVat = p.Price,
-                                         Producer = p.Producer == null ? string.Empty : p.Producer.Name,
-                                         Sweetness = p.Sweetness == null ? string.Empty : p.Sweetness.Name,
-                                         Year = p.Year == null ? string.Empty : p.Year.Name
-                                     });
-
-            return productViewModels;
+            return products.Select(p => new ProductViewModel
+            {
+                Id = p.Id,
+                BottleSize = p.BottleSize == null ? string.Empty : p.BottleSize.Name,
+                BottlesPerCase = p.BottlesPerCase,
+                CatalogueNumber = p.CatalogueNumber,
+                Description = p.Description,
+                Grape = p.GrapeType == null ? string.Empty : p.GrapeType.Name,
+                ImgUrl = p.ImgUrl ?? "~/Content/img/awaiting-image.jpg",
+                Name = p.Name,
+                Origin = p.Origin == null ? string.Empty : p.Origin.Name,
+                PriceExclVat = (p.Price * 100) / (100 + CurrentTaxYearVat.VatPercent),
+                PriceInclVat = p.Price,
+                Producer = p.Producer == null ? string.Empty : p.Producer.Name,
+                Sweetness = p.Sweetness == null ? string.Empty : p.Sweetness.Name,
+                Year = p.Year == null ? string.Empty : p.Year.Name
+            }).ToList();
         }
 
         protected virtual ProductViewModel MapToProductViewModel(Product product)

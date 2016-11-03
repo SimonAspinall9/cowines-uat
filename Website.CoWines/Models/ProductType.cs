@@ -7,7 +7,7 @@
     {
         public int CategoryId { get; set; }
 
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual IEnumerable<Product> Products { get; set; }
         public virtual Category Category {get;set;}
     }
 }
