@@ -38,17 +38,20 @@
         {
             using (var dbContext = new ApplicationDbContext())
             {
-                return dbContext.Products.ToList();
+                return dbContext.Products
+                    .Include("BottleSize")
+                    .Include("GrapeType")
+                    .Include("Origin")
+                    .Include("Producer")
+                    .Include("ProductType")
+                    .Include("Sweetness")
+                    .Include("Year").ToList();
             }
         }
 
         public Product GetById(int id)
         {
-            var product = (from p in DbContext.Products
-                           where p.Id.Equals(id)
-                           select p).SingleOrDefault();
-
-            return product;
+            return Get().Single(p => p.Id == id);
         }
 
         public Product GetByName(string name)

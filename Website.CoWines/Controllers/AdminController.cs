@@ -10,7 +10,7 @@ namespace Website.CoWines.Controllers
     {
         IProductRepository _productRepository = new ProductRepository();
 
-        public ActionResult Index()
+        public override ActionResult Index()
         {
             return RedirectToAction("Products");
         }

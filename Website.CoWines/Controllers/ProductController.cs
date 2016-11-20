@@ -22,9 +22,10 @@ namespace Website.CoWines.Controllers
         public ActionResult Edit(int id)
         {
             var product = _productRepository.GetById(id);
-            var productViewModel = MapToProductViewModel(product);
+            //var productViewModel = MapToProductViewModel(product);
+            var editViewModel = MapToEditViewModel(product);
 
-            return View(productViewModel);
+            return View(editViewModel);
         }
 
         public ActionResult Copy(int id)
@@ -45,7 +46,7 @@ namespace Website.CoWines.Controllers
                 Origins = _editRepository.GetOrigins(),
                 Producers = _editRepository.GetProducers(),
                 Sweetnesses = _editRepository.GetSweetnesses(),
-                Years = _editRepository.GetYears(),
+                Years = _editRepository.GetYears()
             };
         }
     }
