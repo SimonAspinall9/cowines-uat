@@ -26,11 +26,11 @@
         {
             <tr>
                 <td>@Model[i].CatalogueNumber</td>
-                <td><input type="text" readonly class="form-control" name="model[i].Name" placeholder="Product Name" value="@Model[i].Name" /></td>
-                <td><input type="number" readonly step="0.01" class="form-control" name="model[i].Price" value="@Model[i].PriceInclVat" /></td>
-                <td><input type="number" readonly class="form-control" name="model[i].Year" value="@Model[i].Year" /></td>
-                <td><input type="number" readonly class="form-control" name="model[i].Stock" value="0" /></td>
-                <td><input type="checkbox" readonly class="checkbox" name="model[i].Offer" /></td>
+                <td><input type="text" class="form-control" name="model[i].Name" placeholder="Product Name" value="@Model[i].Name" /></td>
+                <td><input type="number" step="0.01" class="form-control" name="model[i].Price" value="@Model[i].PriceInclVat" /></td>
+                <td><input type="number" class="form-control" name="model[i].Year" value="@Model[i].Year" /></td>
+                <td><input type="number" class="form-control" name="model[i].Stock" value="0" /></td>
+                <td><input type="checkbox" class="checkbox" name="model[i].Offer" /></td>
                 <td class="text-center">
                     <a href="@Url.Content("~/Product/Delete/" + Model[i].Id)" class="btn btn-default"><i class="fa fa-trash" title="Delete"></i></a>
                     <a href="@Url.Content("~/Product/Copy/" + Model[i].Id)" class="btn btn-default"><i class="fa fa-plus-square" title="Copy"></i></a>
