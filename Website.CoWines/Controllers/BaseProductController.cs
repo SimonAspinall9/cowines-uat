@@ -19,7 +19,7 @@
             return View(productViewModel);
         }
 
-        protected virtual IEnumerable<ProductViewModel> MapToProductViewModels(IEnumerable<Product> products)
+        protected virtual IEnumerable<ProductViewModel> MapToProductViewModels(ICollection<Product> products)
         {
             var productViewModels = (from p in products
                                      select new ProductViewModel

@@ -9,6 +9,6 @@ namespace Website.CoWines.Repositories
         void Update(T entity);
         T GetById(int id);
         T GetByName(string name);
-        IEnumerable<T> Get();
+        ICollection<T> Get();
     }
 }

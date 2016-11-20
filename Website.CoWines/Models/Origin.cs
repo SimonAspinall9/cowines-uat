@@ -5,6 +5,6 @@
 
     public class Origin : Entity
     {
-        public virtual IEnumerable<Product> Products { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

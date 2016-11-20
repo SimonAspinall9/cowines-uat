@@ -9,7 +9,7 @@ namespace Website.CoWines.Controllers
     [Authorize]
     public class BaseAdminController : BaseController
     {
-        protected virtual IEnumerable<ProductViewModel> MapToProductViewModels(IEnumerable<Product> products)
+        protected virtual IEnumerable<ProductViewModel> MapToProductViewModels(ICollection<Product> products)
         {
             return products.Select(p => new ProductViewModel
             {

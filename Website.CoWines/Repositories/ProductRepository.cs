@@ -34,7 +34,7 @@
             ChangeEntityState(entity, EntityState.Deleted);
         }
 
-        public IEnumerable<Product> Get()
+        public ICollection<Product> Get()
         {
             using (var dbContext = new ApplicationDbContext())
             {
@@ -60,7 +60,7 @@
             return product;
         }
 
-        public IEnumerable<Product> GetByProductType(ProductTypes productType)
+        public ICollection<Product> GetByProductType(ProductTypes productType)
         {
             var productTypeDescription = productType.GetEnumDescription();
             return DbContext.Products.Where(p => p.ProductType.Name.Equals(productTypeDescription, StringComparison.CurrentCultureIgnoreCase)).ToList();

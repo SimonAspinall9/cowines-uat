@@ -6,6 +6,6 @@
 
     public interface IProductRepository : IRepository<Product>
     {
-        IEnumerable<Product> GetByProductType(ProductTypes productType);
+        ICollection<Product> GetByProductType(ProductTypes productType);
     }
 }
